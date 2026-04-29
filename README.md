@@ -56,5 +56,9 @@ An AI-powered tool that acts as your personal savior during exam preparation. It
 ## Usage
 1. Paste your study notes into the text area OR upload a PDF/Image of your notes.
 2. Click **"Generate Study Material"**.
-3. Use the tabs to navigate between **Mock Viva Mode**, **MCQ Practice**, **Short Notes**, and **Weak Topics**.
-4. In Mock Viva Mode, click **"Start Viva"**, listen to the question, and click the microphone to speak your answer!
+3. uses gemini api.
+4. Use the tabs to navigate between **Mock Viva Mode**, **MCQ Practice**, **Short Notes**, and **Weak Topics**.
+5. In Mock Viva Mode, click **"Start Viva"**, listen to the question, and click the microphone to speak your answer!
+AUTHOR:
+**Created by**: [bindan-gooli](https://github.com/bindan-gooli)
+
