@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SAVIOUR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-brain"></i> THE SAVIOUR</h1>
+            <p>Your personal AI tutor for Viva and Exam Preparation</p>
+        </header>
+
+        <main>
+            <!-- Step 1: Input Notes -->
+            <section id="notes-section" class="glass-panel active">
+                <h2>1. Upload Your Notes</h2>
+                <p>Paste your study material below, and AI will generate a personalized mock viva and MCQs.</p>
+                <textarea id="notes-input" placeholder="E.g. Mitochondria is the powerhouse of the cell..."></textarea>
+                
+                <div class="file-upload-container" style="margin-bottom: 1.5rem;">
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 0.5rem;">OR</p>
+                    <label for="file-input" style="display: block; padding: 1rem; border: 1px dashed var(--panel-border); border-radius: 8px; text-align: center; cursor: pointer; color: var(--text-muted); transition: all 0.3s;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF or Image (Optional)
+                    </label>
+                    <input type="file" id="file-input" accept=".pdf,image/png,image/jpeg,image/webp" style="display: none;">
+                    <p id="file-name-display" style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent);"></p>
+                </div>
+
+                <button id="generate-btn" class="primary-btn">
+                    Generate Study Material <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </button>
+                <div id="loading-spinner" class="hidden">
+                    <div class="spinner"></div>
+                    <p>AI is analyzing your notes...</p>
+                </div>
+            </section>
+
+            <!-- Step 2: Dashboard -->
+            <section id="dashboard-section" class="glass-panel hidden">
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="viva-tab">Mock Viva Mode <i class="fa-solid fa-microphone"></i></button>
+                    <button class="tab-btn" data-target="mcq-tab">MCQ Practice <i class="fa-solid fa-list-check"></i></button>
+                    <button class="tab-btn" data-target="notes-tab">Short Notes <i class="fa-solid fa-book-open"></i></button>
+                    <button class="tab-btn" data-target="weaknesses-tab">Weak Topics <i class="fa-solid fa-chart-line"></i></button>
+                </div>
+
+                <!-- Viva Tab -->
+                <div id="viva-tab" class="tab-content active">
+                    <div class="viva-container">
+                        <div class="question-display">
+                            <h3>Current Question</h3>
+                            <p id="current-viva-q">Click 'Start Viva' to begin.</p>
+                        </div>
+                        
+                        <div class="controls">
+                            <button id="start-viva-btn" class="primary-btn">Start Viva</button>
+                            <button id="next-q-btn" class="secondary-btn hidden">Next Question</button>
+                        </div>
+
+                        <div class="voice-interaction hidden" id="voice-controls">
+                            <div class="mic-status" id="mic-status">Listening...</div>
+                            <button id="record-btn" class="mic-btn"><i class="fa-solid fa-microphone"></i></button>
+                            <p class="transcript" id="live-transcript"></p>
+                        </div>
+
+                        <div class="feedback-panel hidden" id="viva-feedback">
+                            <h4>AI Evaluation</h4>
+                            <div class="score-ring">
+                                <span id="viva-score">8</span>/10
+                            </div>
+                            <p id="viva-feedback-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQ Tab -->
+                <div id="mcq-tab" class="tab-content hidden">
+                    <div id="mcq-container">
+                        <!-- MCQs injected here -->
+                    </div>
+                    <button id="submit-mcq-btn" class="primary-btn mt-4">Submit Answers</button>
+                    <div id="mcq-results" class="hidden mt-4">
+                        <h4>Results</h4>
+                        <p id="mcq-score-text"></p>
+                    </div>
+                </div>
+
+                <!-- Weaknesses Tab -->
+                <div id="weaknesses-tab" class="tab-content hidden">
+                    <h3>Identified Weak Topics</h3>
+                    <p>Based on your performance, you should review the following topics:</p>
+                    <ul id="weak-topics-list" class="tags-list">
+                        <!-- Tags injected here -->
+                    </ul>
+                    <div id="no-weaknesses" class="hidden">
+                        <p>Great job! No weak topics identified yet.</p>
+                    </div>
+                </div>
+
+                <!-- Short Notes Tab -->
+                <div id="notes-tab" class="tab-content hidden">
+                    <h3>AI Generated Short Notes</h3>
+                    <ul id="short-notes-list" style="margin-top: 1.5rem; line-height: 1.8; list-style-type: disc; padding-left: 2rem; color: var(--text-main);">
+                        <!-- Notes injected here -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
